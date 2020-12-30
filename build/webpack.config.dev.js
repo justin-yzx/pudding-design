@@ -1,8 +1,23 @@
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+
 module.exports = {
+  mode: 'development',
+  devServer: {
+    inline: true,
+    contentBase: path.join(__dirname, './src/'),
+    publicPath: '/',
+    host: '127.0.0.1',
+    port: 3000,
+    hot: true,
+    stats: {
+      colors: true
+    }
+  },
   entry: './src/index.js',
   resolve: {
     extensions: ['.js', '.less', '.jsx']
@@ -16,12 +31,13 @@ module.exports = {
           // loader 是 babel
           loader: 'babel-loader',
           options: {
-            // babel 转义的配置选项
-            babelrc: false,
             presets: [
               // 添加 preset-react
               require.resolve('@babel/preset-react'),
               [require.resolve('@babel/preset-env'), {modules: false}]
+            ],
+            plugins: [
+              'react-hot-loader/babel'
             ],
             cacheDirectory: true
           }
@@ -39,6 +55,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: 'public/index.html',
       filename: 'index.html',
@@ -48,6 +65,6 @@ module.exports = {
       filename: '[name]/index.css',
       chunkFilename: '[id].css'
     }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
   ]
 }
