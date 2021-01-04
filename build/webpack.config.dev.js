@@ -1,26 +1,28 @@
+const ip = require('ip');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const address = ip.address();
 
 
 module.exports = {
   mode: 'development',
+  target: "web",
   devServer: {
-    inline: true,
-    contentBase: path.join(__dirname, './src/'),
-    publicPath: '/',
-    host: '127.0.0.1',
+    host: address,
     port: 3000,
-    hot: true,
-    stats: {
-      colors: true
-    }
+    hot: true
   },
-  entry: './src/index.js',
+  devtool: 'source-map',
+  entry: [
+    'react-hot-loader/patch',
+    path.resolve(__dirname, '../src/index.js')
+  ],
   resolve: {
-    extensions: ['.js', '.less', '.jsx']
+    extensions: ['.js', '.less', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   module: {
     rules: [
@@ -46,7 +48,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           'postcss-loader',
           'less-loader'
@@ -60,11 +62,6 @@ module.exports = {
       template: 'public/index.html',
       filename: 'index.html',
       inject: true
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name]/index.css',
-      chunkFilename: '[id].css'
-    }),
-    // new CleanWebpackPlugin(),
+    })
   ]
 }
