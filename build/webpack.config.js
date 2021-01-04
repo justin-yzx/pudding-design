@@ -44,6 +44,11 @@ module.exports = {
       filename: 'index.html',
       inject: true
     }),
+    new HtmlWebPackPlugin({
+      template: 'public/index.html',
+      filename: '404.html',
+      inject: true
+    }),
     new MiniCssExtractPlugin({
       filename: '[name]/index.css',
       chunkFilename: '[id].css'
