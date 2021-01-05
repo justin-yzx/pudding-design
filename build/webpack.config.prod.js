@@ -1,9 +1,15 @@
+const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
+  output: {
+    filename: 'index.js',
+    chunkFilename: '[name].js',
+    path: path.resolve(__dirname, '../dist'),
+  },
   resolve: {
     extensions: ['.js', '.less', '.jsx']
   },
@@ -16,8 +22,6 @@ module.exports = {
           // loader 是 babel
           loader: 'babel-loader',
           options: {
-            // babel 转义的配置选项
-            babelrc: false,
             presets: [
               // 添加 preset-react
               require.resolve('@babel/preset-react'),

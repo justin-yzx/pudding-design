@@ -4,7 +4,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      txt: 'txt123'
+      txt: 'txt123456789876'
     }
   }
 
