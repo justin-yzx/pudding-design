@@ -1,4 +1,5 @@
 export default {
+  base: "/xbd-design/",
   dest: '.docz/dist',
   files: '**.mdx',
   title: 'Design',

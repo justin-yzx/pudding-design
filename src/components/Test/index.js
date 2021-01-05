@@ -19,7 +19,7 @@ class Test extends PureComponent {
   }
 }
 
-Test.PropTypes = {
+Test.propTypes = {
   /**
    * This is a description for this prop.
    * Button type.
@@ -28,7 +28,7 @@ Test.PropTypes = {
 }
 
 Test.defaultProps = {
-  txt: ''
+  txt: '1'
 }
 
 export default Test;
