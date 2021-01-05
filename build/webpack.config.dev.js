@@ -39,7 +39,8 @@ module.exports = {
               [require.resolve('@babel/preset-env'), {modules: false}]
             ],
             plugins: [
-              'react-hot-loader/babel'
+              'react-hot-loader/babel',
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
             ],
             cacheDirectory: true
           }

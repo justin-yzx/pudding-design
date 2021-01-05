@@ -8,6 +8,20 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('online', this.networkChange)
+    window.addEventListener('offline', this.networkChange)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('online',this.networkChange)
+    window.removeEventListener('offline',this.networkChange)
+  }
+
+  networkChange = () => {
+    console.log(navigator.onLine)
+  }
+
   render() {
     const {txt} = this.state;
     return (

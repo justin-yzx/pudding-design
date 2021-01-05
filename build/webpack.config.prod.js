@@ -27,6 +27,9 @@ module.exports = {
               require.resolve('@babel/preset-react'),
               [require.resolve('@babel/preset-env'), {modules: false}]
             ],
+            plugins: [
+              ['@babel/plugin-proposal-class-properties', { loose: true }],
+            ],
             cacheDirectory: true
           }
         }
