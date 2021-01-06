@@ -20,10 +20,7 @@ class Test extends PureComponent {
 }
 
 Test.propTypes = {
-  /**
-   * This is a description for this prop.
-   * Button type.
-   */
+  /** 1234567 */
   txt: PropTypes.string
 }
 

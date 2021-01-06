@@ -2,7 +2,10 @@ export default {
   base: "/xbd-design/",
   dest: '.docz/dist',
   files: '**.mdx',
-  title: 'Design',
+  title: 'xbdDesign',
   repository: 'https://github.com/justin-yzx/xbd-design',
-  host: '0.0.0.0'
+  host: '0.0.0.0',
+  themeConfig: {
+    initialColorMode: 'dark',
+  }
 };
