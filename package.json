@@ -1,7 +1,7 @@
 {
-  "name": "xbd-design",
-  "version": "1.0.0",
-  "description": "gogogo",
+  "name": "pudding-design",
+  "version": "0.0.1",
+  "description": "design react",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.config.dev.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justin-yzx/xbd-design.git"
+    "url": "git+https://github.com/justin-yzx/pudding-design.git"
   },
   "author": "zexin.yang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/justin-yzx/xbd-design/issues"
+    "url": "https://github.com/justin-yzx/pudding-design/issues"
   },
-  "homepage": "https://justin-yzx.github.io/justin-yzx/",
+  "homepage": "https://justin-yzx.github.io/pudding-design/",
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "prop-types": "^15.7.2",
