@@ -26,7 +26,8 @@ class App extends Component {
     const {txt} = this.state;
     return (
       <div className="txt">
-        {txt}
+        <div>{txt}</div>
+        <div>{txt}</div>
       </div>
     );
   }

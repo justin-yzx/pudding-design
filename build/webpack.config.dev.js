@@ -2,6 +2,7 @@ const ip = require('ip');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const address = ip.address();
 
 
@@ -58,6 +59,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new FriendlyErrorsWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: 'public/index.html',

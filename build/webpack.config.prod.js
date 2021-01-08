@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 
 module.exports = {
   entry: './src/index.js',
@@ -46,6 +48,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new FriendlyErrorsWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: 'public/index.html',
       filename: 'index.html',
